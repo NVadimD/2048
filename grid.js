@@ -1,15 +1,21 @@
 import { Cell } from './cell.js';
 
 const gridSize = 4;
-const cellsCount = gridSize * gridSize;
+const countCells = gridSize * gridSize;
 
 export class Grid {
-    constructor(box) {
+    constructor(gridElement) {
         this.cells = [];
-        for (let i = 0; i < cellsCount; i++) {
+        for (let i = 0; i < countCells; i++) {
             this.cells.push(
-                new Cell (box, i % gridSize, Math.floor(i / gridSize))
+                new Cell(gridElement, i % gridSize, Math.floor(i / gridSize))
             )
         }
+    }
+
+    getRandomCell() {
+        this.emptyCells = this.cells.filter(cell => cell.isEmpty());
+        const randomIndex = Math.floor(Math.random() * this.emptyCells.length);
+        return this.emptyCells[randomIndex];
     }
 }
