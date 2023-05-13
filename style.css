@@ -32,7 +32,9 @@ body {
     position: absolute;
     left: calc(var(--x) * (var(--cell-size) + var(--cell-gap)));
     top: calc(var(--y) * (var(--cell-size) + var(--cell-gap)));
-    background: rgb(255, 255, 255);
+
+    background-color: hsl(25, 60%, var(--bg-lightness));
+    color: hsl(20, 25%, var(--text-lightness));
 
     height: 20vmin;
     width: 20vmin;
